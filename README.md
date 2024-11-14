@@ -4,7 +4,7 @@
 # **Desenvolvimento Web 1**
 ## Apresentação do projeto
 
-O Grupo 32 escolheu desenvolver . Este trabalho permite-nos desenvolver habilidades práticas em desenvolvimento web e trabalho em grupo.
+O Grupo 32 escolheu desenvolver xxxxx. Este trabalho permite-nos desenvolver habilidades práticas em desenvolvimento web e trabalho em grupo.
 
 
 

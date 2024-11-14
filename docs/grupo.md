@@ -1,6 +1,4 @@
-
-
-Group 32
+##Group 32
 
 - António Filipe
 - Gustavo

@@ -13,9 +13,10 @@ O Grupo 32 escolheu desenvolver xxxxx. Este trabalho permite-nos desenvolver hab
 ## Organização do repositório
 O repositório está organizado da seguinte forma:
 
-- pasta xxx - xxxxx
-- pasta xxx - xxxxxxx
+- pasta OpenAPI - contem os OpenAPI que foram elaborados no Swagger
+- pasta docs - xx
 - pasta xxxx - contem todas as imagens em utilização no HTML
+- Collection do Postman
 
 
 

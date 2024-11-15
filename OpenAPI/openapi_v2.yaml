@@ -1,0 +1,455 @@
+openapi: 3.0.3
+info:
+  title: Hotel Management API
+  description: API for managing hotels, rooms, reservations, guests, and services.
+  version: 1.0.1
+servers:
+  - url: http://localhost:3360
+    description: Local server
+tags:
+  - name: Hotels
+    description: Endpoints related to hotels
+  - name: Guests
+    description: Endpoints related to guests
+  - name: Reservations
+    description: Endpoints related to reservations
+  - name: Rooms
+    description: Endpoints related to rooms
+
+paths:
+  /hotels:
+    get:
+      tags:
+        - Hotels
+      summary: List all hotels
+      responses:
+        '200':
+          description: A list of hotels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hotel'
+    post:
+      tags:
+        - Hotels
+      summary: Create a new hotel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+      responses:
+        '201':
+          description: Hotel created
+  /hotels/{id}:
+    get:
+      tags:
+        - Hotels
+      summary: Get details of a specific hotel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Hotel details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+        '404':
+          description: Hotel not found
+    put:
+      tags:
+        - Hotels
+      summary: Update data of a specific hotel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+      responses:
+        '200':
+          description: Hotel updated
+    delete:
+      tags:
+        - Hotels
+      summary: Delete a hotel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Hotel deleted
+  /guests:
+    get:
+      tags:
+        - Guests
+      summary: List all guests
+      responses:
+        '200':
+          description: A list of guests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Guest'
+    post:
+      tags:
+        - Guests
+      summary: Create a new guest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Guest'
+      responses:
+        '201':
+          description: Guest created
+  /guests/{id}:
+    get:
+      tags:
+        - Guests
+      summary: Get details of a specific guest
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Guest details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guest'
+        '404':
+          description: Guest not found
+    put:
+      tags:
+        - Guests
+      summary: Update data of a specific guest
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Guest'
+      responses:
+        '200':
+          description: Guest updated
+    delete:
+      tags:
+        - Guests
+      summary: Delete a guest
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Guest deleted
+  /reservations:
+    get:
+      tags:
+        - Reservations
+      summary: List all reservations
+      responses:
+        '200':
+          description: A list of reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reservation'
+    post:
+      tags:
+        - Reservations
+      summary: Create a new reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+      responses:
+        '201':
+          description: Reservation created
+  /reservations/{id}:
+    get:
+      tags:
+        - Reservations
+      summary: Get details of a specific reservation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Reservation details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        '404':
+          description: Reservation not found
+    put:
+      tags:
+        - Reservations
+      summary: Update data of a specific reservation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+      responses:
+        '200':
+          description: Reservation updated
+    delete:
+      tags:
+        - Reservations
+      summary: Delete a reservation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Reservation deleted
+  /rooms:
+    get:
+      tags:
+        - Rooms
+      summary: List all rooms
+      responses:
+        '200':
+          description: A list of rooms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Room'
+    post:
+      tags:
+        - Rooms
+      summary: Create a new room
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+      responses:
+        '201':
+          description: Room created
+  /rooms/{id}:
+    get:
+      tags:
+        - Rooms
+      summary: Get details of a specific room
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Room details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '404':
+          description: Room not found
+    put:
+      tags:
+        - Rooms
+      summary: Update data of a specific room
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+      responses:
+        '200':
+          description: Room updated
+    delete:
+      tags:
+        - Rooms
+      summary: Delete a room
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Room deleted
+  /hotels/{id}/available-rooms:
+    get:
+      tags:
+        - Room Status
+      summary: Retrieve reservations or available rooms for a specific hotel
+      description: Lists all reservations for a specific hotel. Optionally, provides available rooms for a specific date if the `date` query parameter is provided.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: The ID of the hotel
+        - name: date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+          description: The date to filter available rooms
+      responses:
+        '200':
+          description: List of reservations or available rooms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                    - $ref: '#/components/schemas/Reservations'
+                    - $ref: '#/components/schemas/AvailableRoom'
+        '404':
+          description: Hotel not found
+        '400':
+          description: Invalid date format
+components:
+  schemas:
+    Hotel:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        stars:
+          type: integer
+        address:
+          type: string
+    Guest:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        contact:
+          type: string
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date
+        guestId:
+          type: integer
+    Room:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        price:
+          type: number
+          format: float
+    Reservations:
+      type: object
+      properties:
+        reservation_id:
+          type: integer
+          description: Unique identifier of the reservation
+        guest_name:
+          type: string
+          description: Name of the guest who made the reservation
+        room_number:
+          type: integer
+          description: Room number reserved
+        check_in_date:
+          type: string
+          format: date
+          description: Check-in date for the reservation
+        check_out_date:
+          type: string
+          format: date
+          description: Check-out date for the reservation
+    AvailableRoom:
+      type: object
+      properties:
+        room_id:
+          type: integer
+          description: Unique identifier of the room
+        room_number:
+          type: integer
+          description: Room number in the hotel
+        type:
+          type: string
+          description: Type of the room (e.g., Suite, Standard)
+        capacity:
+          type: integer
+          description: Maximum capacity of the room
+        price_per_night:
+          type: number
+          format: float
+          description: Price per night for the room
+        date:
+          type: string
+          format: date
+          description: Availability date of the room

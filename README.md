@@ -23,8 +23,6 @@ O repositório está organizado da seguinte forma:
 - Collection do Postman
 
 
-
-
 ## Elementos do Grupo
 - António Manuel Ferreira Lopes dos Santos Filipe - nº 044351 @AmFilipe
 - Gustavo Henrique Paiva Amorin - nº 043259 @

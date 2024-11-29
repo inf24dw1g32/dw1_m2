@@ -1,0 +1,571 @@
+openapi: 3.0.3
+info:
+  title: Hotel Management API
+  description: "API for managing hotels, rooms, reservations, guests, and services."
+  version: 1.0.1
+servers:
+- url: http://localhost:8080
+  description: Local server
+tags:
+- name: Hotels
+  description: Endpoints related to hotels
+- name: Guests
+  description: Endpoints related to guests
+- name: Reservations
+  description: Endpoints related to reservations
+- name: Rooms
+  description: Endpoints related to rooms
+- name: Room Status
+  description: Endpoint related to status of room for specific hotel
+paths:
+  /hotels:
+    get:
+      tags:
+        - Hotels
+      summary: List all hotels
+      operationId: hotelsGET
+      responses:
+        "200":
+          description: A list of hotels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hotel'
+                x-content-type: application/json
+      x-swagger-router-controller: Hotels
+    post:
+      tags:
+        - Hotels
+      summary: Create a new hotel
+      operationId: hotelsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+        required: true
+      responses:
+        "201":
+          description: Hotel created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+      x-swagger-router-controller: Hotels
+  /hotels/{id}:
+    get:
+      tags:
+        - Hotels
+      summary: Get details of a specific hotel
+      operationId: hotelsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Hotel details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+        "404":
+          description: Hotel not found
+      x-swagger-router-controller: Hotels
+    put:
+      tags:
+        - Hotels
+      summary: Update data of a specific hotel
+      operationId: hotelsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+        required: true
+      responses:
+        "200":
+          description: Hotel updated
+      x-swagger-router-controller: Hotels
+    delete:
+      tags:
+        - Hotels
+      summary: Delete a specific hotel
+      operationId: hotelsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Hotel deleted
+        "404":
+          description: Hotel not found
+      x-swagger-router-controller: Hotels
+  /guests:
+    get:
+      tags:
+        - Guests
+      summary: List all guests
+      operationId: guestsGET
+      responses:
+        "200":
+          description: A list of guests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Guest'
+                x-content-type: application/json
+      x-swagger-router-controller: Guests
+    post:
+      tags:
+        - Guests
+      summary: Create a new guest
+      operationId: guestsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Guest'
+        required: true
+      responses:
+        "201":
+          description: Guest created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guest'
+      x-swagger-router-controller: Guests
+  /guests/{id}:
+    get:
+      tags:
+        - Guests
+      summary: Get details of a specific guest
+      operationId: guestsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Guest details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guest'
+        "404":
+          description: Guest not found
+      x-swagger-router-controller: Guests
+    put:
+      tags:
+        - Guests
+      summary: Update data of a specific guest
+      operationId: guestsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Guest'
+        required: true
+      responses:
+        "200":
+          description: Guest updated
+      x-swagger-router-controller: Guests
+    delete:
+      tags:
+        - Guests
+      summary: Delete a specific guest
+      operationId: guestsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Guest deleted
+        "404":
+          description: Guest not found
+      x-swagger-router-controller: Guests
+  /rooms:
+    get:
+      tags:
+        - Rooms
+      summary: List all rooms
+      operationId: roomsGET
+      responses:
+        "200":
+          description: A list of rooms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Room'
+      x-swagger-router-controller: Rooms
+    post:
+      tags:
+        - Rooms
+      summary: Create a new room
+      operationId: roomsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      responses:
+        "201":
+          description: Room created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+      x-swagger-router-controller: Rooms
+  /rooms/{id}:
+    get:
+      tags:
+        - Rooms
+      summary: Get details of a specific room
+      operationId: roomsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Room details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        "404":
+          description: Room not found
+      x-swagger-router-controller: Rooms
+    put:
+      tags:
+        - Rooms
+      summary: Update data of a specific room
+      operationId: roomsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      responses:
+        "200":
+          description: Room updated
+      x-swagger-router-controller: Rooms
+    delete:
+      tags:
+        - Rooms
+      summary: Delete a specific room
+      operationId: roomsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Room deleted
+        "404":
+          description: Room not found
+      x-swagger-router-controller: Rooms
+  /reservations:
+    get:
+      tags:
+        - Reservations
+      summary: List all reservations
+      operationId: reservationsGET
+      responses:
+        "200":
+          description: A list of reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reservation'
+      x-swagger-router-controller: Reservations
+    post:
+      tags:
+        - Reservations
+      summary: Create a new reservation
+      operationId: reservationsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+        required: true
+      responses:
+        "201":
+          description: Reservation created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+      x-swagger-router-controller: Reservations
+  /reservations/{id}:
+    get:
+      tags:
+        - Reservations
+      summary: Get details of a specific reservation
+      operationId: reservationsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Reservation details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        "404":
+          description: Reservation not found
+      x-swagger-router-controller: Reservations
+    put:
+      tags:
+        - Reservations
+      summary: Update data of a specific reservation
+      operationId: reservationsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+        required: true
+      responses:
+        "200":
+          description: Reservation updated
+      x-swagger-router-controller: Reservations
+    delete:
+      tags:
+        - Reservations
+      summary: Delete a specific reservation
+      operationId: reservationsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Reservation deleted
+        "404":
+          description: Reservation not found
+      x-swagger-router-controller: Reservations
+  /room-status:
+    get:
+      tags:
+      - Room Status
+      summary: Get available rooms in a hotel for a specific date
+      operationId: roomStatusGET
+      parameters:
+      - name: hotel_id
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: date
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date
+      responses:
+        "200":
+          description: A list of available rooms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailableRoom'
+                x-content-type: application/json
+        "404":
+          description: No available rooms found
+      x-swagger-router-controller: RoomStatus
+components:
+  schemas:
+    Hotel:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        stars:
+          type: integer
+        address:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+      required:
+        - name
+        - stars
+        - address
+        - city
+        - country
+      example:
+        name: name
+        stars: 6
+        address: address
+        city: city
+        country: country
+    Room:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        hotel_id:
+          type: integer
+        room_type_id:
+          type: integer
+        number:
+          type: integer
+        price:
+          type: number
+      required:
+        - hotel_id
+        - room_type_id
+        - number
+        - price
+      example:
+        hotel_id: 6
+        room_type_id: 1
+        number: 5
+        price: 5.63737665663332876420099637471139430999755859375
+    Guest:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        id_card:
+          type: string
+        phone:
+          type: string
+        address:
+          type: string
+        country:
+          type: string
+      required:
+        - name
+        - id_card
+        - phone
+        - address
+        - country
+      example:
+        name: name
+        id_card: id_card
+        phone: phone
+        address: address
+        country: country
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        date:
+          type: string
+          format: date
+        booking_method:
+          type: string
+        guest_count:
+          type: integer
+        credit_card:
+          type: string
+        guest_id:
+          type: integer
+      required:
+        - date
+        - booking_method
+        - guest_count
+        - credit_card
+        - guest_id
+      example:
+        date: 2000-01-23
+        booking_method: booking_method
+        guest_count: 6
+        credit_card: credit_card
+        guest_id: 1
+    AvailableRoom:
+      type: object
+      properties:
+        room_id:
+          type: integer
+        room_number:
+          type: integer
+        room_type:
+          type: string
+        capacity:
+          type: integer
+        price_per_night:
+          type: number
+        date:
+          type: string
+          format: date
+      example:
+        room_id: 0
+        date: 2000-01-23
+        price_per_night: 5.962133916683182377482808078639209270477294921875
+        room_number: 6
+        room_type: room_type
+        capacity: 1

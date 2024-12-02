@@ -1,0 +1,843 @@
+openapi: 3.0.3
+info:
+  title: Hotel Management API
+  description: "API for managing hotels, rooms, reservations, guests, and services."
+  version: 1.0.1
+servers:
+- url: http://localhost:8080
+  description: Local server
+tags:
+- name: Hotels
+  description: Endpoints related to hotels
+- name: Guests
+  description: Endpoints related to guests
+- name: Reservations
+  description: Endpoints related to reservations
+- name: Rooms
+  description: Endpoints related to rooms
+- name: Room Status
+  description: Endpoint related to status of room for specific hotel
+paths:
+  /hotels:
+    get:
+      tags:
+        - Hotels
+      summary: List all hotels (summary)
+      operationId: hotelsGET
+      responses:
+        "200":
+          description: A list of hotels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    stars:
+                      type: integer
+                  example:
+                    id: 1
+                    name: "Grand Hotel"
+                    stars: 5
+          x-content-type: application/json
+      x-swagger-router-controller: Hotels
+    post:
+      tags:
+        - Hotels
+      summary: Create a new hotel
+      operationId: hotelsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+        required: true
+      responses:
+        "201":
+          description: Hotel created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+      x-swagger-router-controller: Hotels
+  /hotels/{id}:
+    get:
+      tags:
+        - Hotels
+      summary: Get details of a specific hotel
+      operationId: hotelsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Hotel details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+        "404":
+          description: Hotel not found
+      x-swagger-router-controller: Hotels
+    put:
+      tags:
+        - Hotels
+      summary: Update data of a specific hotel
+      operationId: hotelsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+        required: true
+      responses:
+        "200":
+          description: Hotel updated
+      x-swagger-router-controller: Hotels
+    delete:
+      tags:
+        - Hotels
+      summary: Delete a specific hotel
+      operationId: hotelsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Hotel deleted
+        "404":
+          description: Hotel not found
+      x-swagger-router-controller: Hotels
+  /guests:
+    get:
+      tags:
+        - Guests
+      summary: List all guests (summary)
+      operationId: guestsGET
+      responses:
+        "200":
+          description: A list of guests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                  example:
+                    id: 1
+                    name: "John Doe"
+      x-swagger-router-controller: Guests
+  /guests/{id}:
+    get:
+      tags:
+        - Guests
+      summary: Get details of a specific guest
+      operationId: guestsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Guest details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guest'
+        "404":
+          description: Guest not found
+      x-swagger-router-controller: Guests
+    put:
+      tags:
+        - Guests
+      summary: Update data of a specific guest
+      operationId: guestsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Guest'
+        required: true
+      responses:
+        "200":
+          description: Guest updated
+      x-swagger-router-controller: Guests
+    delete:
+      tags:
+        - Guests
+      summary: Delete a specific guest
+      operationId: guestsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Guest deleted
+        "404":
+          description: Guest not found
+      x-swagger-router-controller: Guests
+  /rooms:
+    get:
+      tags:
+        - Rooms
+      summary: List all rooms (summary)
+      operationId: roomsGET
+      responses:
+        "200":
+          description: A list of rooms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    hotel_id:
+                      type: integer
+                    number:
+                      type: integer
+                  example:
+                    id: 101
+                    hotel_id: 1
+                    number: 505
+      x-swagger-router-controller: Rooms
+    post:
+      tags:
+        - Rooms
+      summary: Create a new room
+      operationId: roomsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      responses:
+        "201":
+          description: Room created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+      x-swagger-router-controller: Rooms
+  /rooms/{id}:
+    get:
+      tags:
+        - Rooms
+      summary: Get details of a specific room
+      operationId: roomsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Room details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        "404":
+          description: Room not found
+      x-swagger-router-controller: Rooms
+    put:
+      tags:
+        - Rooms
+      summary: Update data of a specific room
+      operationId: roomsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      responses:
+        "200":
+          description: Room updated
+      x-swagger-router-controller: Rooms
+    delete:
+      tags:
+        - Rooms
+      summary: Delete a specific room
+      operationId: roomsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Room deleted
+        "404":
+          description: Room not found
+      x-swagger-router-controller: Rooms
+  /reservations:
+    get:
+      tags:
+        - Reservations
+      summary: List all reservations (summary)
+      operationId: reservationsGET
+      responses:
+        "200":
+          description: A list of reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    guest_id:
+                      type: integer
+                    hotel_id:
+                      type: integer
+                  example:
+                    id: 1001
+                    guest_id: 1
+                    hotel_id: 1
+      x-swagger-router-controller: Reservations
+    post:
+      tags:
+        - Reservations
+      summary: Create a new reservation
+      operationId: reservationsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationInput'
+        required: true
+      responses:
+        "201":
+          description: Reservation created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationInput'
+      x-swagger-router-controller: Reservations
+  /reservations/{id}:
+    get:
+      tags:
+        - Reservations
+      summary: Get details of a specific reservation
+      operationId: reservationsIdGET
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Reservation details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+        "404":
+          description: Reservation not found
+      x-swagger-router-controller: Reservations
+    put:
+      tags:
+        - Reservations
+      summary: Update data of a specific reservation
+      operationId: reservationsIdPUT
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationInput'
+        required: true
+      responses:
+        "200":
+          description: Reservation update
+        "400":
+          description: Invalid input data
+          content:
+            application/json:
+              example:
+                error: "Field 'guest_id' is required"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: "Unexpected error occurred"
+      x-swagger-router-controller: Reservations
+    delete:
+      tags:
+        - Reservations
+      summary: Delete a specific reservation
+      operationId: reservationsIdDELETE
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Reservation deleted successfully
+          content:
+            application/json:
+              example:
+                message: "Reservation deleted"
+        "404":
+          description: Reservation not found
+          content:
+            application/json:
+              example:
+                error: "Reservation with id 1001 not found"
+      x-swagger-router-controller: Reservations
+  /reservations/report:
+    get:
+      tags:
+        - Reservations
+      summary: Get reservations grouped by guest, hotel, and room type
+      operationId: reservationsReportGET
+      parameters:
+        - name: guest_id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Filter by a specific guest ID
+        - name: hotel_id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Filter by a specific hotel ID
+        - name: room_type_id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Filter by a specific room type ID
+      responses:
+        "200":
+          description: A grouped list of reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    guest:
+                      type: object
+                      $ref: '#/components/schemas/Guest'
+                    hotel:
+                      type: object
+                      $ref: '#/components/schemas/Hotel'
+                    room_type:
+                      type: string
+                    reservations:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Reservation'
+              example:
+                - guest:
+                    id: 1
+                    name: "John Doe"
+                  hotel:
+                    id: 1
+                    name: "Hotel XYZ"
+                  room_type: "Deluxe"
+                  reservations:
+                    - reservation_id: 1
+                      check_in: "2024-12-01"
+                      nights: 3
+                      guest_name: "John Doe"
+                      room_number: 505
+                      price_per_night: 200.00
+                      regime: "Full Board"
+        "404":
+          description: No reservations found
+      x-swagger-router-controller: Reservations
+  /reservations/search:
+    get:
+      tags:
+        - Reservations
+      summary: Search reservations by guest, hotel, and room type
+      operationId: searchReservations
+      parameters:
+        - name: guest_id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Filter by a specific guest ID
+        - name: hotel_id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Filter by a specific hotel ID
+        - name: room_type_id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Filter by a specific room type ID
+      responses:
+        "200":
+          description: List of reservations matching the criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    reservation_id:
+                      type: integer
+                    check_in:
+                      type: string
+                      format: date
+                    nights:
+                      type: integer
+                    guest_name:
+                      type: string
+                    room_number:
+                      type: integer
+                    room_type:
+                      type: string
+                    price_per_night:
+                      type: number
+                      format: float
+                    regime:
+                      type: string
+                example:
+                  - reservation_id: 1
+                    check_in: "2024-12-01"
+                    nights: 3
+                    guest_name: "John Doe"
+                    room_number: 505
+                    room_type: "Deluxe Suite"
+                    price_per_night: 200.00
+                    regime: "Full Board"
+        "404":
+          description: No reservations found matching the criteria
+          content:
+            application/json:
+              example:
+                error: "No reservations found for the specified criteria"
+      x-swagger-router-controller: Reservations
+  /room-status:
+    get:
+      tags:
+      - Room Status
+      summary: Get available rooms in a hotel for a specific date
+      operationId: roomStatusGET
+      parameters:
+      - name: hotel_id
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: date
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date
+      responses:
+        "200":
+          description: A list of available rooms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailableRoom'
+                x-content-type: application/json
+        "404":
+          description: No available rooms found
+      x-swagger-router-controller: RoomStatus
+components:
+  schemas:
+    Hotel:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        stars:
+          type: integer
+        address:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+      required:
+        - name
+        - stars
+        - address
+        - city
+        - country
+      example:
+        name: name
+        stars: 6
+        address: address
+        city: city
+        country: country
+    Room:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        hotel_id:
+          type: integer
+        room_type_id:
+          type: integer
+        number:
+          type: integer
+        price:
+          type: number
+      required:
+        - hotel_id
+        - room_type_id
+        - number
+        - price
+      example:
+        hotel_id: 6
+        room_type_id: 1
+        number: 5
+        price: 5.63737665663332876420099637471139430999755859375
+    Guest:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        id_card:
+          type: string
+        phone:
+          type: string
+        address:
+          type: string
+        country:
+          type: string
+      required:
+        - name
+        - id_card
+        - phone
+        - address
+        - country
+      example:
+        name: name
+        id_card: id_card
+        phone: phone
+        address: address
+        country: country
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        guest_id:
+          type: integer
+          description: ID of the guest
+        room_id:
+          type: integer
+          description: ID of the room
+        check_in:
+          type: string
+          format: date
+          description: Check-in date
+        nights:
+          type: integer
+          description: Number of nights
+        regime_id:
+          type: integer
+          description: ID of the regime
+        booking_method:
+          type: string
+          description: Booking method
+        guest_count:
+          type: integer
+          description: Number of guests
+        credit_card:
+          type: string
+          description: Guest's credit card number
+        address:
+          type: string
+          description: Address of the guest
+        contact_phone:
+          type: string
+          description: Contact phone of the guest
+        date:
+          type: string
+          format: date
+          description: Reservation date
+        guest_name:
+          type: string
+          description: Name of the guest
+      example:
+        id: 1
+        guest_id: 101
+        room_id: 505
+        check_in: "2024-12-01"
+        nights: 3
+        regime_id: 1
+        booking_method: "online"
+        guest_count: 2
+        credit_card: "1234-5678-9012-3456"
+        address: "123 Main Street, Cityville"
+        contact_phone: "+123456789"
+        date: "2024-11-30"
+        guest_name: "John Doe"
+    ReservationInput:
+      type: object
+      properties:
+        guest_id:
+          type: integer
+          description: ID of the guest
+        room_id:
+          type: integer
+          description: ID of the room
+        check_in:
+          type: string
+          format: date
+          description: Check-in date
+        nights:
+          type: integer
+          description: Number of nights
+        regime_id:
+          type: integer
+          description: ID of the regime
+        booking_method:
+          type: string
+          description: Booking method
+        guest_count:
+          type: integer
+          description: Number of guests
+        credit_card:
+          type: string
+          description: Guest's credit card number
+        address:
+          type: string
+          description: Address of the guest
+        contact_phone:
+          type: string
+          description: Contact phone of the guest
+        date:
+          type: string
+          format: date
+          description: Reservation date
+        guest_name:
+          type: string
+          description: Name of the guest
+      required:
+        - guest_id
+        - room_id
+        - check_in
+        - nights
+        - regime_id
+        - booking_method
+        - guest_count
+        - credit_card
+        - address
+        - contact_phone
+        - date
+        - guest_name
+      example:
+        guest_id: 101
+        room_id: 505
+        check_in: "2024-12-01"
+        nights: 3
+        regime_id: 1
+        booking_method: "online"
+        guest_count: 2
+        credit_card: "1234-5678-9012-3456"
+        address: "123 Main Street, Cityville"
+        contact_phone: "+123456789"
+        date: "2024-11-30"
+        guest_name: "John Doe"
+    AvailableRoom:
+      type: object
+      properties:
+        room_id:
+          type: integer
+        room_number:
+          type: integer
+        room_type:
+          type: string
+        capacity:
+          type: integer
+        price_per_night:
+          type: number
+        date:
+          type: string
+          format: date
+      example:
+        room_id: 0
+        date: 2000-01-23
+        price_per_night: 5.962133916683182377482808078639209270477294921875
+        room_number: 6
+        room_type: room_type
+        capacity: 1

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a76eaad0-7d74-44f5-8e3c-1a9747962722",
+		"_postman_id": "77c6a14a-30eb-4ff5-a6ab-cb880a4d383b",
 		"name": "Hotel Management API",
 		"description": "API for managing hotels, rooms, reservations, guests, and services.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -78,7 +78,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"<integer>\"\n}"
+									"body": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"restaurants\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}"
 								},
 								{
 									"name": "Hotel not found",
@@ -122,7 +122,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"restaurants\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -161,7 +161,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"restaurants\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -349,7 +349,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"restaurants\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -384,7 +384,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"restaurants\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -412,7 +412,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"<integer>\"\n}"
+							"body": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"restaurants\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"meal_type\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}"
 						}
 					]
 				}
@@ -741,6 +741,135 @@
 							],
 							"cookie": [],
 							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new guest",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/guests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"guests"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Guest created successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/guests",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Invalid request body",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/guests",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"example\": {\n    \"error\": \"Invalid input\"\n  }\n}"
 						}
 					]
 				}
@@ -1651,7 +1780,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n  {\n    \"guest\": {\n      \"name\": \"<string>\",\n      \"id_card\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"hotel\": {\n      \"name\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"room_type\": \"<string>\",\n    \"reservations\": [\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"guest\": {\n      \"name\": \"<string>\",\n      \"id_card\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"hotel\": {\n      \"name\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"room_type\": \"<string>\",\n    \"reservations\": [\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      }\n    ]\n  }\n]"
+									"body": "[\n  {\n    \"guest\": {\n      \"name\": \"<string>\",\n      \"id_card\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"hotel\": {\n      \"name\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"restaurants\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"meal_type\": \"<string>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"meal_type\": \"<string>\"\n        }\n      ],\n      \"services\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"room_type\": \"<string>\",\n    \"reservations\": [\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"guest\": {\n      \"name\": \"<string>\",\n      \"id_card\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"hotel\": {\n      \"name\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"restaurants\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"meal_type\": \"<string>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"meal_type\": \"<string>\"\n        }\n      ],\n      \"services\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    \"room_type\": \"<string>\",\n    \"reservations\": [\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      }\n    ]\n  }\n]"
 								},
 								{
 									"name": "No reservations found",
@@ -1692,152 +1821,6 @@
 									"header": [],
 									"cookie": [],
 									"body": ""
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "search",
-					"item": [
-						{
-							"name": "Search reservations by guest, hotel, and room type",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/reservations/search?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"reservations",
-										"search"
-									],
-									"query": [
-										{
-											"key": "guest_id",
-											"value": "<integer>",
-											"description": "Filter by a specific guest ID"
-										},
-										{
-											"key": "hotel_id",
-											"value": "<integer>",
-											"description": "Filter by a specific hotel ID"
-										},
-										{
-											"key": "room_type_id",
-											"value": "<integer>",
-											"description": "Filter by a specific room type ID"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "List of reservations matching the criteria",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/reservations/search?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"reservations",
-												"search"
-											],
-											"query": [
-												{
-													"key": "guest_id",
-													"value": "<integer>",
-													"description": "Filter by a specific guest ID"
-												},
-												{
-													"key": "hotel_id",
-													"value": "<integer>",
-													"description": "Filter by a specific hotel ID"
-												},
-												{
-													"key": "room_type_id",
-													"value": "<integer>",
-													"description": "Filter by a specific room type ID"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "[\n  {\n    \"reservation_id\": \"<integer>\",\n    \"check_in\": \"<date>\",\n    \"nights\": \"<integer>\",\n    \"guest_name\": \"<string>\",\n    \"room_number\": \"<integer>\",\n    \"room_type\": \"<string>\",\n    \"price_per_night\": \"<float>\",\n    \"regime\": \"<string>\"\n  },\n  {\n    \"reservation_id\": \"<integer>\",\n    \"check_in\": \"<date>\",\n    \"nights\": \"<integer>\",\n    \"guest_name\": \"<string>\",\n    \"room_number\": \"<integer>\",\n    \"room_type\": \"<string>\",\n    \"price_per_night\": \"<float>\",\n    \"regime\": \"<string>\"\n  }\n]"
-								},
-								{
-									"name": "No reservations found matching the criteria",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/reservations/search?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"reservations",
-												"search"
-											],
-											"query": [
-												{
-													"key": "guest_id",
-													"value": "<integer>",
-													"description": "Filter by a specific guest ID"
-												},
-												{
-													"key": "hotel_id",
-													"value": "<integer>",
-													"description": "Filter by a specific hotel ID"
-												},
-												{
-													"key": "room_type_id",
-													"value": "<integer>",
-													"description": "Filter by a specific room type ID"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n  \"example\": {\n    \"error\": \"No reservations found for the specified criteria\"\n  }\n}"
 								}
 							]
 						}

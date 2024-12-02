@@ -1,0 +1,2240 @@
+{
+	"info": {
+		"_postman_id": "7ada920c-f6d6-471f-a23b-b582cc10e19c",
+		"name": "Hotel Management API",
+		"description": "API for managing hotels, rooms, reservations, guests, and services.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2805566"
+	},
+	"item": [
+		{
+			"name": "hotels",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get details of a specific hotel",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/hotels/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Hotel details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/hotels/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Hotel not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/hotels/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update data of a specific hotel",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/hotels/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Hotel updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/hotels/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a specific hotel",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/hotels/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Hotel deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/hotels/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Hotel not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/hotels/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"hotels",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "List all hotels (summary)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/hotels",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"hotels"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "A list of hotels",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/hotels",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"stars\": \"<integer>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"stars\": \"<integer>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new hotel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/hotels",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"hotels"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Hotel created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/hotels",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"hotels"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"name\": \"<string>\",\n  \"stars\": \"<integer>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"<integer>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "guests",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get details of a specific guest",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/guests/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Guest details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/guests/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"guests",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Guest not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/guests/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"guests",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update data of a specific guest",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/guests/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Guest updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/guests/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"guests",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a specific guest",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/guests/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Guest deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/guests/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"guests",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Guest not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/guests/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"guests",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "List all guests (summary)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/guests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"guests"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "A list of guests",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/guests",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new guest",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/guests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"guests"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Guest created successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/guests",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Invalid request body",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"id_card\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/guests",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"guests"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"example\": {\n    \"error\": \"Invalid input\"\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "rooms",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get details of a specific room",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/rooms/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Room details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/rooms/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"hotel_id\": \"<integer>\",\n  \"room_type_id\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"price\": \"<number>\",\n  \"id\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Room not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/rooms/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update data of a specific room",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"hotel_id\": \"<integer>\",\n  \"room_type_id\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/rooms/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Room updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"hotel_id\": \"<integer>\",\n  \"room_type_id\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/rooms/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a specific room",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/rooms/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Room deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/rooms/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Room not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/rooms/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "List all rooms (summary)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/rooms",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "A list of rooms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/rooms",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"hotel_id\": \"<integer>\",\n    \"number\": \"<integer>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"hotel_id\": \"<integer>\",\n    \"number\": \"<integer>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new room",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"hotel_id\": \"<integer>\",\n  \"room_type_id\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/rooms",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Room created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"hotel_id\": \"<integer>\",\n  \"room_type_id\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"price\": \"<number>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/rooms",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"hotel_id\": \"<integer>\",\n  \"room_type_id\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"price\": \"<number>\",\n  \"id\": \"<integer>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reservations",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get details of a specific reservation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservations/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Reservation details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}"
+								},
+								{
+									"name": "Reservation not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update data of a specific reservation",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reservations/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Reservation update",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reservations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid input data",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reservations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"example\": {\n    \"error\": \"Field 'guest_id' is required\"\n  }\n}"
+								},
+								{
+									"name": "Internal server error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reservations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"example\": {\n    \"error\": \"Unexpected error occurred\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a specific reservation",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservations/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Reservation deleted successfully",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"example\": {\n    \"message\": \"Reservation deleted\"\n  }\n}"
+								},
+								{
+									"name": "Reservation not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"example\": {\n    \"error\": \"Reservation with id 1001 not found\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "report",
+					"item": [
+						{
+							"name": "Get reservations grouped by guest, hotel, and room type",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservations/report?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										"report"
+									],
+									"query": [
+										{
+											"key": "guest_id",
+											"value": "<integer>",
+											"description": "Filter by a specific guest ID"
+										},
+										{
+											"key": "hotel_id",
+											"value": "<integer>",
+											"description": "Filter by a specific hotel ID"
+										},
+										{
+											"key": "room_type_id",
+											"value": "<integer>",
+											"description": "Filter by a specific room type ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "A grouped list of reservations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/report?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												"report"
+											],
+											"query": [
+												{
+													"key": "guest_id",
+													"value": "<integer>",
+													"description": "Filter by a specific guest ID"
+												},
+												{
+													"key": "hotel_id",
+													"value": "<integer>",
+													"description": "Filter by a specific hotel ID"
+												},
+												{
+													"key": "room_type_id",
+													"value": "<integer>",
+													"description": "Filter by a specific room type ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"guest\": {\n      \"name\": \"<string>\",\n      \"id_card\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"hotel\": {\n      \"name\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"room_type\": \"<string>\",\n    \"reservations\": [\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"guest\": {\n      \"name\": \"<string>\",\n      \"id_card\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"hotel\": {\n      \"name\": \"<string>\",\n      \"stars\": \"<integer>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    \"room_type\": \"<string>\",\n    \"reservations\": [\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"guest_id\": \"<integer>\",\n        \"room_id\": \"<integer>\",\n        \"check_in\": \"<date>\",\n        \"nights\": \"<integer>\",\n        \"regime_id\": \"<integer>\",\n        \"booking_method\": \"<string>\",\n        \"guest_count\": \"<integer>\",\n        \"credit_card\": \"<string>\",\n        \"address\": \"<string>\",\n        \"contact_phone\": \"<string>\",\n        \"date\": \"<date>\",\n        \"guest_name\": \"<string>\"\n      }\n    ]\n  }\n]"
+								},
+								{
+									"name": "No reservations found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/report?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												"report"
+											],
+											"query": [
+												{
+													"key": "guest_id",
+													"value": "<integer>",
+													"description": "Filter by a specific guest ID"
+												},
+												{
+													"key": "hotel_id",
+													"value": "<integer>",
+													"description": "Filter by a specific hotel ID"
+												},
+												{
+													"key": "room_type_id",
+													"value": "<integer>",
+													"description": "Filter by a specific room type ID"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "search",
+					"item": [
+						{
+							"name": "Search reservations by guest, hotel, and room type",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservations/search?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations",
+										"search"
+									],
+									"query": [
+										{
+											"key": "guest_id",
+											"value": "<integer>",
+											"description": "Filter by a specific guest ID"
+										},
+										{
+											"key": "hotel_id",
+											"value": "<integer>",
+											"description": "Filter by a specific hotel ID"
+										},
+										{
+											"key": "room_type_id",
+											"value": "<integer>",
+											"description": "Filter by a specific room type ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List of reservations matching the criteria",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/search?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												"search"
+											],
+											"query": [
+												{
+													"key": "guest_id",
+													"value": "<integer>",
+													"description": "Filter by a specific guest ID"
+												},
+												{
+													"key": "hotel_id",
+													"value": "<integer>",
+													"description": "Filter by a specific hotel ID"
+												},
+												{
+													"key": "room_type_id",
+													"value": "<integer>",
+													"description": "Filter by a specific room type ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"reservation_id\": \"<integer>\",\n    \"check_in\": \"<date>\",\n    \"nights\": \"<integer>\",\n    \"guest_name\": \"<string>\",\n    \"room_number\": \"<integer>\",\n    \"room_type\": \"<string>\",\n    \"price_per_night\": \"<float>\",\n    \"regime\": \"<string>\"\n  },\n  {\n    \"reservation_id\": \"<integer>\",\n    \"check_in\": \"<date>\",\n    \"nights\": \"<integer>\",\n    \"guest_name\": \"<string>\",\n    \"room_number\": \"<integer>\",\n    \"room_type\": \"<string>\",\n    \"price_per_night\": \"<float>\",\n    \"regime\": \"<string>\"\n  }\n]"
+								},
+								{
+									"name": "No reservations found matching the criteria",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservations/search?guest_id=<integer>&hotel_id=<integer>&room_type_id=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservations",
+												"search"
+											],
+											"query": [
+												{
+													"key": "guest_id",
+													"value": "<integer>",
+													"description": "Filter by a specific guest ID"
+												},
+												{
+													"key": "hotel_id",
+													"value": "<integer>",
+													"description": "Filter by a specific hotel ID"
+												},
+												{
+													"key": "room_type_id",
+													"value": "<integer>",
+													"description": "Filter by a specific room type ID"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"example\": {\n    \"error\": \"No reservations found for the specified criteria\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "List all reservations (summary)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reservations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "A list of reservations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"guest_id\": \"<integer>\",\n    \"hotel_id\": \"<integer>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"guest_id\": \"<integer>\",\n    \"hotel_id\": \"<integer>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new reservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reservations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reservation created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reservations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"guest_id\": \"<integer>\",\n  \"room_id\": \"<integer>\",\n  \"check_in\": \"<date>\",\n  \"nights\": \"<integer>\",\n  \"regime_id\": \"<integer>\",\n  \"booking_method\": \"<string>\",\n  \"guest_count\": \"<integer>\",\n  \"credit_card\": \"<string>\",\n  \"address\": \"<string>\",\n  \"contact_phone\": \"<string>\",\n  \"date\": \"<date>\",\n  \"guest_name\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "room-status",
+			"item": [
+				{
+					"name": "Get available rooms in a hotel for a specific date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/room-status?hotel_id=<integer>&date=<date>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"room-status"
+							],
+							"query": [
+								{
+									"key": "hotel_id",
+									"value": "<integer>",
+									"description": "(Required) "
+								},
+								{
+									"key": "date",
+									"value": "<date>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "A list of available rooms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/room-status?hotel_id=<integer>&date=<date>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"room-status"
+									],
+									"query": [
+										{
+											"key": "hotel_id",
+											"value": "<integer>",
+											"description": "(Required) "
+										},
+										{
+											"key": "date",
+											"value": "<date>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"room_id\": \"<integer>\",\n    \"room_number\": \"<integer>\",\n    \"room_type\": \"<string>\",\n    \"capacity\": \"<integer>\",\n    \"price_per_night\": \"<number>\",\n    \"date\": \"<date>\"\n  },\n  {\n    \"room_id\": \"<integer>\",\n    \"room_number\": \"<integer>\",\n    \"room_type\": \"<string>\",\n    \"capacity\": \"<integer>\",\n    \"price_per_night\": \"<number>\",\n    \"date\": \"<date>\"\n  }\n]"
+						},
+						{
+							"name": "No available rooms found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/room-status?hotel_id=<integer>&date=<date>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"room-status"
+									],
+									"query": [
+										{
+											"key": "hotel_id",
+											"value": "<integer>",
+											"description": "(Required) "
+										},
+										{
+											"key": "date",
+											"value": "<date>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

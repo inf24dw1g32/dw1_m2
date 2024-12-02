@@ -149,6 +149,68 @@ paths:
                     id: 1
                     name: "John Doe"
       x-swagger-router-controller: Guests
+    post:
+      tags:
+        - Guests
+      summary: Create a new guest
+      operationId: createGuest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Full name of the guest
+                id_card:
+                  type: string
+                  description: ID card or passport number
+                phone:
+                  type: string
+                  description: Contact phone number
+                address:
+                  type: string
+                  description: Address of the guest
+                country:
+                  type: string
+                  description: Country of residence
+              required:
+                - name
+                - id_card
+                - phone
+                - address
+                - country
+              example:
+                name: "John Doe"
+                id_card: "123456789"
+                phone: "+1234567890"
+                address: "123 Main Street, City, State"
+                country: "USA"
+      responses:
+        "201":
+          description: Guest created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: ID of the created guest
+                  message:
+                    type: string
+                example:
+                  id: 1
+                  message: "Guest created successfully"
+        "400":
+          description: Invalid request body
+          content:
+            application/json:
+              example:
+                error: "Invalid input"
+      x-swagger-router-controller: Guests
   /guests/{id}:
     get:
       tags:

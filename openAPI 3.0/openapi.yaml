@@ -569,75 +569,6 @@ paths:
         "404":
           description: No reservations found
       x-swagger-router-controller: Reservations
-  /reservations/search:
-    get:
-      tags:
-        - Reservations
-      summary: Search reservations by guest, hotel, and room type
-      operationId: searchReservations
-      parameters:
-        - name: guest_id
-          in: query
-          required: false
-          schema:
-            type: integer
-          description: Filter by a specific guest ID
-        - name: hotel_id
-          in: query
-          required: false
-          schema:
-            type: integer
-          description: Filter by a specific hotel ID
-        - name: room_type_id
-          in: query
-          required: false
-          schema:
-            type: integer
-          description: Filter by a specific room type ID
-      responses:
-        "200":
-          description: List of reservations matching the criteria
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    reservation_id:
-                      type: integer
-                    check_in:
-                      type: string
-                      format: date
-                    nights:
-                      type: integer
-                    guest_name:
-                      type: string
-                    room_number:
-                      type: integer
-                    room_type:
-                      type: string
-                    price_per_night:
-                      type: number
-                      format: float
-                    regime:
-                      type: string
-                example:
-                  - reservation_id: 1
-                    check_in: "2024-12-01"
-                    nights: 3
-                    guest_name: "John Doe"
-                    room_number: 505
-                    room_type: "Deluxe Suite"
-                    price_per_night: 200.00
-                    regime: "Full Board"
-        "404":
-          description: No reservations found matching the criteria
-          content:
-            application/json:
-              example:
-                error: "No reservations found for the specified criteria"
-      x-swagger-router-controller: Reservations
   /room-status:
     get:
       tags:
@@ -675,6 +606,42 @@ paths:
       x-swagger-router-controller: RoomStatus
 components:
   schemas:
+    Restaurant:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        category:
+          type: string
+        meal_type:
+          type: string
+      required:
+        - id
+        - name
+        - category
+        - meal_type
+      example:
+        id: 1
+        name: "Italian Bistro"
+        category: "Italian"
+        meal_type: "Dinner"
+    
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+      example:
+        id: 1
+        name: "Spa"
+
     Hotel:
       type: object
       properties:
@@ -691,6 +658,14 @@ components:
           type: string
         country:
           type: string
+        restaurants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Restaurant'
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
       required:
         - name
         - stars
@@ -698,11 +673,26 @@ components:
         - city
         - country
       example:
-        name: name
-        stars: 6
-        address: address
-        city: city
-        country: country
+        id: 1
+        name: "Grand Hotel"
+        stars: 5
+        address: "123 Luxury St."
+        city: "Paris"
+        country: "France"
+        restaurants:
+          - id: 1
+            name: "Gourmet Restaurant"
+            category: "French"
+            meal_type: "Dinner"
+          - id: 2
+            name: "Quick Bites"
+            category: "Fast Food"
+            meal_type: "Lunch"
+        services:
+          - id: 1
+            name: "Free WiFi"
+          - id: 2
+            name: "Swimming Pool"
     Room:
       type: object
       properties:
@@ -903,3 +893,4 @@ components:
         room_number: 6
         room_type: room_type
         capacity: 1
+    
